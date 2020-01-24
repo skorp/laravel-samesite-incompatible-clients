@@ -3,7 +3,7 @@ namespace Skorp\SameSite\Middleware;
 
 
 use Closure;
-use Illuminate\Http\Response;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Cookie;
 
 class SameSiteMiddleware
