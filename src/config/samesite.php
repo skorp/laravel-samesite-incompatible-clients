@@ -7,5 +7,5 @@ return [
     ],
 
     //cokies should not be handled
-    'except' => ['demoexcept']
+    'except' => []
 ];
