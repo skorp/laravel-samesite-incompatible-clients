@@ -20,7 +20,7 @@ Service provider will register itself.
 you can publish the config file to make some changes.
 
 ```bash
-php artisan vendor:publish --provider="Skorp\SameSite\SameSiteIncompatibleClientsProvider"
+php artisan vendor:publish --provider="Skorp\SameSite\SameSiteIncompatibleClientsProvider" --tag=config
 ```
 
 
@@ -31,7 +31,6 @@ https://www.netsparker.com/blog/web-security/same-site-cookie-attribute-prevent-
 https://www.thinktecture.com/identity/samesite/prepare-your-identityserver/
 
 ### Next step
-- Tests
 - cleanup the code
 
 

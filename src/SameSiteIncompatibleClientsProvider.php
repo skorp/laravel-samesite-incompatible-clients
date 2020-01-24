@@ -24,7 +24,7 @@ class SameSiteIncompatibleClientsProvider extends ServiceProvider
      */
     public function boot() {
 
-        $this->publishes([__DIR__.'/config/samesite.php' => config_path('samesite.php')]);
+        $this->publishes([__DIR__.'/config/samesite.php' => config_path('samesite.php')],'config');
 
         $kernel = $this->app->make(Kernel::class);
 
@@ -35,7 +35,6 @@ class SameSiteIncompatibleClientsProvider extends ServiceProvider
                 foreach($groups as $group) {
                     $kernel->prependMiddlewareToGroup($group,SameSiteMiddleware::class);
                 }
-
             }
         }
     }

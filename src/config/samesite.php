@@ -6,6 +6,8 @@ return [
         'web'
     ],
 
-    //cokies should not be handled
+    /*
+     *   cokies should not be handled
+     */
     'except' => []
 ];

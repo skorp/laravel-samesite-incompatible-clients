@@ -6,7 +6,6 @@ use Skorp\SameSite\SameSiteIncompatibleClientsProvider;
 use Illuminate\Routing\Router;
 
 use Symfony\Component\HttpFoundation\Cookie;
-use Illuminate\Support\Facades\Cookie as c;
 
 
 class TestCase extends \Orchestra\Testbench\TestCase {
@@ -41,9 +40,8 @@ class TestCase extends \Orchestra\Testbench\TestCase {
     }
 
     protected function routeAdd(Router $router) {
+
         $router->get('cookie',function(Response $request) {
-
-
             $cookie = new Cookie('cookie-test',
                 'value',
                 26000,
@@ -54,13 +52,10 @@ class TestCase extends \Orchestra\Testbench\TestCase {
                 false,
                 Cookie::SAMESITE_NONE
             );
-
             return response('test')->withCookie($cookie);
-
         });
+
         $router->get('cookie-except',function(Response $request) {
-
-
             $cookie = new Cookie('ex-cookie-test',
                 'value',
                 26000,
@@ -71,9 +66,7 @@ class TestCase extends \Orchestra\Testbench\TestCase {
                 false,
                 Cookie::SAMESITE_NONE
             );
-
             return response('test')->withCookie($cookie);
-
         });
     }
 

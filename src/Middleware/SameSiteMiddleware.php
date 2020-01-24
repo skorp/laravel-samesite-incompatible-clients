@@ -17,6 +17,7 @@ class SameSiteMiddleware
      */
 
     protected $userAgent = null;
+
     public function handle($request, Closure $next)
     {
         $response =  $next($request);
@@ -40,15 +41,18 @@ class SameSiteMiddleware
         return !$this->isSameSiteNoneIncompatible();
     }
 
+
     private function isSameSiteNoneIncompatible() : bool {
         return $this->hasWebKitSameSiteBug() || $this->dropsUnrecognizedSameSiteCookies();
     }
+
 
     private function hasWebKitSameSiteBug() : bool {
         return $this->isIosVersion(12) ||
            ($this->isMacosxVersion(10, 14) &&
             ($this->isSafari() || $this->isMacEmbeddedBrowser()));
     }
+
 
     private function dropsUnrecognizedSameSiteCookies() : bool {
         if ($this->isUcBrowser())
@@ -59,10 +63,12 @@ class SameSiteMiddleware
                 !$this->isChromiumVersionAtLeast(67);
     }
 
+
     private function isChromiumBased() : bool  {
         $regex = '/Chrom(e|ium)/';
         return preg_match($regex,$this->userAgent);
     }
+
 
     private function isChromiumVersionAtLeast($version)  : bool {
         $regex = '/Chrom[^ \/]+\/(\d+)[\.\d]*/';
@@ -70,11 +76,13 @@ class SameSiteMiddleware
         return ($matches[1]??null) >= $version;
     }
 
+
     private function isIosVersion($major) : bool {
         $regex = "/\(iP.+; CPU .*OS (\d+)[_\d]*.*\) AppleWebKit\//";
         preg_match($regex,$this->userAgent,$matches);
         return ($matches[1]??null) == $major;
     }
+
 
     private function isMacosxVersion($major,$minor) : bool {
         $regex = "/\(Macintosh;.*Mac OS X (\d+)_(\d+)[_\d]*.*\) AppleWebKit\//";
@@ -83,10 +91,12 @@ class SameSiteMiddleware
         return (($matches[1]??null) == $major   && (($matches[2]??null) == $minor));
     }
 
+
     private function isSafari() : bool {
         $regex = "/Version\/.* Safari\//";
     return preg_match($regex,$this->userAgent) && ! $this->isChromiumBased();
     }
+
 
     private function isMacEmbeddedBrowser() : bool {
         $regex = "#/^Mozilla\/[\.\d]+ \(Macintosh;.*Mac OS X [_\d]+\) AppleWebKit\/[\.\d]+ \(KHTML, like Gecko\)$#";
@@ -98,6 +108,7 @@ class SameSiteMiddleware
         $regex = '/UCBrowser\//';
         return preg_match($regex,$this->userAgent);
     }
+
 
     private function isUcBrowserVersionAtLeast($major,$minor,$build) : bool {
 
@@ -115,6 +126,7 @@ class SameSiteMiddleware
             return $minor_version > $minor;
         return $build_version >= $build;
     }
+
 
     private function getSameSiteCookies(Response $response) : array {
         $cookies = $response->headers->getCookies();
@@ -143,6 +155,7 @@ class SameSiteMiddleware
         return $response;
     }
 
+
     private function reset(Cookie $cookie) : Cookie{
         return new Cookie(
             $cookie->getName(), $cookie->getValue(), $cookie->getExpiresTime(),
@@ -155,4 +168,5 @@ class SameSiteMiddleware
     private function isDisabled($name) {
         return in_array($name, config('samesite.except'));
     }
+
 }
