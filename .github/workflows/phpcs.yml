@@ -1,0 +1,2 @@
+- name: PHPCodeSniffer
+  uses: rtCamp/action-phpcs-inspection@v1.0.0
