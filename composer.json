@@ -1,9 +1,10 @@
 {
     "name": "skorp/laravel-samesite-incompatible-clients",
     "description": "Some user agents are known to be incompatible with the `SameSite=None` attribute. This middleware will try to determine and overwrite the Cookie value.",
+    "keywords": ["laravel", "cookies", "samesite", "samesite cookie","safari","samesitecookie=none"],
     "require": {
         "php": "^7.2",
-        "laravel/framework": "^6.12"
+        "laravel/framework": "^6.2"
     },
     "license": "MIT",
     "authors": [
