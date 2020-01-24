@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Cookie;
 class SameSiteMiddleware
 {
     /**
-     * Handle an incoming request.
+     * Handle an outgoing SameSite cookies
      *
      * @param \Illuminate\Http\Request $request
      * @param \Closure $next
