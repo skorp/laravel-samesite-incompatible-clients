@@ -67,21 +67,20 @@ class SameSiteMiddleware
     private function isChromiumVersionAtLeast($version)  : bool {
         $regex = '/Chrom[^ \/]+\/(\d+)[\.\d]*/';
         preg_match($regex,$this->userAgent,$matches);
-        return $matches[1] >= $version;
+        return ($matches[1]??null) >= $version;
     }
 
     private function isIosVersion($major) : bool {
         $regex = "/\(iP.+; CPU .*OS (\d+)[_\d]*.*\) AppleWebKit\//";
         preg_match($regex,$this->userAgent,$matches);
-
-        return $matches[1]??null == $major;
+        return ($matches[1]??null) == $major;
     }
 
     private function isMacosxVersion($major,$minor) : bool {
         $regex = "/\(Macintosh;.*Mac OS X (\d+)_(\d+)[_\d]*.*\) AppleWebKit\//";
         preg_match($regex,$this->userAgent,$matches);
 
-        return ($matches[1]??null == $major   && ($matches[2]??null == $minor));
+        return (($matches[1]??null) == $major   && (($matches[2]??null) == $minor));
     }
 
     private function isSafari() : bool {
