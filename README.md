@@ -1,6 +1,7 @@
 # Laravel SameSite incompatible clients Middleware
 
-<a href="https://github.com/skorp/laravel-samesite-incompatible-clients/blob/master/LICENSE"><img src="https://img.shields.io/github/license/skorp/laravel-samesite-incompatible-clients"></a>
+<a href="https://github.com/skorp/laravel-samesite-incompatible-clients/blob/master/LICENSE"><img src="https://img.shields.io/github/license/skorp/laravel-samesite-incompatible-clients"></a> 
+![Laravel](https://github.com/skorp/laravel-samesite-incompatible-clients/workflows/Laravel/badge.svg)
 
 ## About
 Some user agents are known to be incompatible with the `SameSite=None` attribute. <br>
