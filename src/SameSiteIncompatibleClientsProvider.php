@@ -4,6 +4,7 @@ namespace Skorp\SameSite;
 
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\ServiceProvider;
+use Skorp\Dissua\SameSite;
 use Skorp\SameSite\Middleware\SameSiteMiddleware;
 
 class SameSiteIncompatibleClientsProvider extends ServiceProvider
@@ -15,6 +16,11 @@ class SameSiteIncompatibleClientsProvider extends ServiceProvider
      */
     public function register() {
         $this->mergeConfigFrom(__DIR__.'/config/samesite.php', 'samesite');
+
+        $this->app->bind('SameSite', function () {
+            return $this->app->make(SameSite::class);
+        });
+
     }
 
     /**

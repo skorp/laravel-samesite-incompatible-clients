@@ -1,7 +1,7 @@
 # Laravel SameSite incompatible clients Middleware
 
 <a href="https://github.com/skorp/laravel-samesite-incompatible-clients/blob/master/LICENSE"><img src="https://img.shields.io/github/license/skorp/laravel-samesite-incompatible-clients"></a> 
-![Laravel](https://github.com/skorp/laravel-samesite-incompatible-clients/workflows/Laravel/badge.svg)
+![Laravel](https://github.com/skorp/laravel-samesite-incompatible-clients/workflows/Laravel-Tests/badge.svg)
 
 ## About
 Some user agents are known to be incompatible with the `SameSite=None` attribute. <br>
@@ -25,14 +25,11 @@ php artisan vendor:publish --provider="Skorp\SameSite\SameSiteIncompatibleClient
 ```
 
 
-#### Links about SameSite-Cookie:
+#### Links about SameSite Cookie:
 https://www.chromium.org/updates/same-site/incompatible-clients<br>
 https://web.dev/samesite-cookie-recipes/<br>
 https://www.netsparker.com/blog/web-security/same-site-cookie-attribute-prevent-cross-site-request-forgery<br>
 https://www.thinktecture.com/identity/samesite/prepare-your-identityserver/
-
-### Next step
-- cleanup the code
 
 
 Your feedback is welcome.
