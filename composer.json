@@ -5,7 +5,7 @@
     "require": {
         "php": "^7.2",
         "laravel/framework": "^6.2",
-        "skorp/detect-incompatible-samesite-useragents": "^2.0.0"
+        "skorp/detect-incompatible-samesite-useragents": "^1.0"
     },
     "license": "MIT",
     "authors": [
